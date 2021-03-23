@@ -12,6 +12,7 @@ var theStyle = `
       border-bottom-right-radius: 6px;
       transition: background-color 200ms;
       cursor: pointer;
+      z-index: 99999;
   }
   .fullinsta-link:hover {
     background-color: #88b1d8;
@@ -22,41 +23,39 @@ styleNode.innerText = theStyle
 
 targetNode.appendChild(styleNode)
 
-const theObserver = new MutationObserver((list, observer) => {
-    list.forEach((mutation) => {
-        if (mutation.type === 'childList') {
-            const articles = document.getElementsByTagName('article')
-            for (var i=0; i < articles.length; i++) {                
-                const article = articles[i]
-                if (article.getAttribute('role') ==='presentation') {
-                    const buttons = article.getElementsByClassName('fullinsta-link')
-                    if (buttons.length === 0) {
-                        let id = ''
-                        const splittedPath = window.location.pathname.split('/')
-                        if (splittedPath[1] === 'p') {
-                            id = splittedPath[2]
-                        } else {
-                            const timeLink = article.getElementsByTagName('time')[0]
-                            if (timeLink) {
-                                id = timeLink.parentElement?.href.split('/')[4]
-                            }
+setInterval(() => {
+    const articles = document.getElementsByTagName('article')
+    for (var i = 0; i < articles.length; i++) {
+        const article = articles[i]
+        if (article.getAttribute('role') === 'presentation') {
+            const buttons = article.getElementsByClassName('fullinsta-link')
+            if (buttons.length === 0) {
+                let link = ''
+                const images = article.getElementsByTagName('img')
 
-                        }
-
-                        if (id !== undefined && id !== '') {                            
+                for (var x = 0; x < images.length; x++) {
+                    if (images[x].srcset) {
+                        console.log(images[x])
+                        const srcSets = images[x].srcset.split(',')
+                        const srcSet = srcSets[srcSets.length - 1]
+                        link = srcSet.split(' ')[0]
+                        if (link !== undefined && link !== '') {
                             const a = document.createElement('a')
                             a.innerText = 'Full'
                             a.setAttribute('target', '_blank')
-                            a.setAttribute('href', `https://www.instagram.com/p/${id}/media?size=l`)
+                            a.setAttribute('href', link)
                             a.className = 'fullinsta-link'
-                            article.appendChild(a)
+                            images[x].parentNode.appendChild(a)
                         }
-
-                        
                     }
+
                 }
+
+
+
             }
         }
-    })
-});
-theObserver.observe(targetNode, config);
+    }
+
+
+}, 500)

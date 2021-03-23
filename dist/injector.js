@@ -15,7 +15,7 @@
   \*************************/
 /***/ (() => {
 
-eval("var scr = document.createElement(\"script\");\nscr.id = 'whatsallapp-content-script';\nscr.type = 'text/javascript';\nscr.src = chrome.extension.getURL('/bundle.js');\n(document.head || document.body || document.documentElement).appendChild(scr); // chrome.storage.sync.get('pluginEnabled', function(data) {\n//     if (data.pluginEnabled) {\n//         const rootEl = document.createElement('div')\n//         rootEl.id = 'whatsallapp-root'\n//         rootEl.setAttribute('data-extension-id', chrome.runtime.id)\n//         document.body.appendChild(rootEl)\n//     } else {\n//     }\n// });\n\n//# sourceURL=webpack://full_insta/./src/injector.js?");
+eval("var scr = document.createElement(\"script\");\nscr.id = 'fullinsta-content-script';\nscr.type = 'text/javascript';\nscr.src = chrome.extension.getURL('/bundle.js');\n(document.head || document.body || document.documentElement).appendChild(scr); // chrome.storage.sync.get('pluginEnabled', function(data) {\n//     if (data.pluginEnabled) {\n//         const rootEl = document.createElement('div')\n//         rootEl.id = 'whatsallapp-root'\n//         rootEl.setAttribute('data-extension-id', chrome.runtime.id)\n//         document.body.appendChild(rootEl)\n//     } else {\n//     }\n// });\n\n//# sourceURL=webpack://full_insta/./src/injector.js?");
 
 /***/ })
 
