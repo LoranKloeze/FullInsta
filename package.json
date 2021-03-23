@@ -1,0 +1,22 @@
+{
+  "name": "full_insta",
+  "version": "0.0.1",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.12.0",
+    "copy-webpack-plugin": "^8.0.0",
+    "raw-loader": "^4.0.2",
+    "react-svg-inline": "^2.1.1",
+    "sass-loader": "^11.0.1",
+    "webpack": "^5.25.0",
+    "webpack-cli": "^4.5.0",
+    "write-file-webpack-plugin": "^4.5.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.13.10",
+    "babel-loader": "^8.2.2",
+    "babel-polyfill": "^7.0.0-beta.3",
+    "babel-preset-env": "^7.0.0-beta.3",
+    "yarn": "^1.22.10"
+  }
+}
