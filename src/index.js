@@ -28,14 +28,12 @@ setInterval(() => {
     for (var i = 0; i < articles.length; i++) {
         const article = articles[i]
         if (article.getAttribute('role') === 'presentation') {
-            const buttons = article.getElementsByClassName('fullinsta-link')
-            if (buttons.length === 0) {
-                let link = ''
-                const images = article.getElementsByTagName('img')
-
-                for (var x = 0; x < images.length; x++) {
-                    if (images[x].srcset) {
-                        console.log(images[x])
+            let link = ''
+            const images = article.getElementsByTagName('img')
+            for (var x = 0; x < images.length; x++) {
+                if (images[x].srcset) {
+                    const existingButton = images[x].parentNode.getElementsByClassName('fullinsta-link')
+                    if (existingButton.length === 0) {
                         const srcSets = images[x].srcset.split(',')
                         const srcSet = srcSets[srcSets.length - 1]
                         link = srcSet.split(' ')[0]
@@ -48,12 +46,13 @@ setInterval(() => {
                             images[x].parentNode.appendChild(a)
                         }
                     }
-
                 }
 
-
-
             }
+
+
+
+
         }
     }
 
