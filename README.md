@@ -1,6 +1,9 @@
 # FullInsta
 
-FullInsta adds a button to Instagram pictures that quickly shows the full resolution versions of the picture
+FullInsta adds a button to Instagram pictures that quickly shows the full resolution version of a picture
+
+![image](https://user-images.githubusercontent.com/12978070/112154181-4caad300-8be4-11eb-8f85-84555e5a9619.png)
+
 
 This is a quick and dirty Chrome Extension to show a button on picture that opens the full resolution of the picture.
 
