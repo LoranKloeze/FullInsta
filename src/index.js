@@ -34,9 +34,8 @@ setInterval(() => {
                 if (images[x].srcset) {
                     const existingButton = images[x].parentNode.getElementsByClassName('fullinsta-link')
                     if (existingButton.length === 0) {
-                        const srcSets = images[x].srcset.split(',')
-                        const srcSet = srcSets[srcSets.length - 1]
-                        link = srcSet.split(' ')[0]
+                        link = images[x].src
+
                         if (link !== undefined && link !== '') {
                             const a = document.createElement('a')
                             a.innerText = 'Full'
